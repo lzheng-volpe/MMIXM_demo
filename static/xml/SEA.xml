@@ -15,7 +15,7 @@
                 </mb:geographicLocation>
             </mx:location>
             <mx:monitoringEvent>
-                <mx:eventDateTime>2026-07-29T15:50:39.686915</mx:eventDateTime>
+                <mx:eventDateTime>2026-07-30T14:49:12.094511</mx:eventDateTime>
                 <mx:parameter>
                     <mx:availability>
                         <mx:currentAvailability>Available</mx:currentAvailability>
@@ -23,7 +23,7 @@
                     <mx:monitored>Monitored</mx:monitored>
                     <mx:name>System Temperature (internal sensor)</mx:name>
                     <mx:parameterState>
-                            <mx:currentValue xsi:type="mb:Temperature" uom="F" value="46.7"/>
+                            <mx:currentValue xsi:type="mb:Temperature" uom="F" value="48.6"/>
                     </mx:parameterState>
                 </mx:parameter>
             </mx:monitoringEvent>
