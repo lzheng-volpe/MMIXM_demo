@@ -1,0 +1,77 @@
+<!-- Create.html-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSV Autocomplete Search</title>
+    <link rel="stylesheet" href="/static/Css/styles.css">
+</head>
+<body>
+
+    <!-- Sidebar Layout Components -->
+    <button id="open-btn" class="toggle-btn">☰</button>
+    <div id="sidebar-overlay" class="overlay"></div>
+    
+    <aside id="sidebar" class="sidebar">
+        <div class="sidebar-header">
+            <h3>Navigation</h3>
+            <button id="close-btn" class="close-btn">&times;</button>
+        </div>
+        <nav class="sidebar-links">
+            <a href="/">Homepage</a>
+            <a href="#">Dashboard</a>
+            <a href="/map">Worldmap</a>
+            <a href="/create">Manual Input</a>
+        </nav>
+    </aside>
+
+    <script src="/static/temp.js"></script>
+
+    <!-- Main Content Container -->
+    <main class="main-content">
+        <form class="form-container" onsubmit="event.preventDefault();">
+            <h2>Airport Entry</h2>
+
+            <div class="form-group">
+                <label for="iata-input">Airport Code (IATA)</label>
+                <input type="text" id="iata-input" placeholder="e.g., LAX" autocomplete="off">
+                <ul id="iata-list" class="suggestion-list"></ul>
+            </div>
+
+            <div class="form-group">
+                <label for="name-input">Airport Name</label>
+                <input type="text" id="name-input" placeholder="e.g., Los Angeles Intl" autocomplete="off">
+                <ul id="name-list" class="suggestion-list"></ul>
+            </div>
+
+            <div class="form-group">
+                <label for="lat-input">Latitude</label>
+                <input type="text" id="lat-input" readonly placeholder="Autofilled latitude">
+            </div>
+
+            <div class="form-group">
+                <label for="lon-input">Longitude</label>
+                <input type="text" id="lon-input" readonly placeholder="Autofilled longitude">
+            </div>
+
+            <div class="form-group">
+                <label for="temp-input">Radar Temperature (°F)</label>
+                <input type="text" id="temp-input" placeholder="e.g., 75.0">
+            </div>
+
+            <div class="form-group">
+                <label for="avail-input">Availability</label>
+                <input type="text" id="avail-input" placeholder="e.g., Available">
+            </div>
+
+            <div class="form-group">
+                <label for="moni-input">Monitored Status</label>
+                <input type="text" id="moni-input" placeholder="e.g., Monitored">
+            </div>
+        </form>
+    </main>
+
+    <script src="/static/create.js"></script>
+</body>
+</html>

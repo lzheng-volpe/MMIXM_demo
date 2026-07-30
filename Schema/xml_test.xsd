@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="WeatherReport"></xs:element>
+
+  <xs:annotation>   
+    <xs:documentation>This is a test of xml schema</xs:documentation>
+  </xs:annotation>
+
+  <!-- Different Weather Conditions -->
+  <xs:simpleType name="WeatherCondition"> 
+
+    <xs:annotation>
+      <xs:documentation>Enumerated list of different weather conditions</xs:documentation>
+    </xs:annotation>
+
+    <xs:restriction base="xs:string">
+
+      <xs:enumeration value="Clear">
+        <xs:annotation>
+          <xs:documentation>Warm or bright weather with few to no clouds obstructing direct sunlight</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+
+      <xs:enumeration value="Partly Cloudly">
+        <xs:annotation>
+          <xs:documentation>The sky is partially obscured by scattered clouds</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+
+      <xs:enumeration value="Mostly Cloudy">
+        <xs:annotation>
+          <xs:documentation>The sky is mostly covered by clouds, but some blue sky remains visible</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+
+      <xs:enumeration value="Overcast">
+        <xs:annotation>
+          <xs:documentation>A thick, continuous layer of clouds covers the entire sky, blocking direct sunlight</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+
+      <xs:enumeration value="Rain">
+        <xs:annotation>
+          <xs:documentation>Moisture that condenses in the atmosphere and falls to the earth as liquid water droplets.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+
+      <xs:enumeration value="Drizzle">
+        <xs:annotation>
+          <xs:documentation>Very light rain consisting of tiny, water droplets</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+
+      <xs:enumeration value="Snow">
+        <xs:annotation>
+          <xs:documentation>Frozen precipitation consisting of ice crystal flakes that fall when temperatures are below freezing</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+
+      <xs:enumeration value="Sleet">
+        <xs:annotation>
+          <xs:documentation>Tiny, partially frozen or clear ice pellets that form when snowflakes melt in a warm layer of air and refreeze before hitting the ground</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+
+      <xs:enumeration value="Hail">
+        <xs:annotation>
+          <xs:documentation>Solid balls or irregular lumps of ice that form inside severe thunderstorms</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+
+      <xs:enumeration value="Freezing Rain">
+        <xs:annotation>
+          <xs:documentation>Supercooled liquid rain that freezes instantly upon contact with cold surfaces</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+
+    </xs:restriction>
+
+  </xs:simpleType>
+
+  <!-- Temperature -->
+  <xs:simpleType name="Fahrenheit">
+    <xs:annotation>
+      <xs:documentation>Temperature scale primarily used in the United States and a few territories</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:decimal">
+      <xs:minInclusive value="-459.67"></xs:minInclusive>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="Celsius">
+    <xs:annotation>
+      <xs:documentation>International unit for measuring temperature</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:decimal">
+      <xs:minInclusive value="-273.15"></xs:minInclusive>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="Kelvin">
+    <xs:annotation>
+      <xs:documentation>Base unit of thermodynamic temperature in the International System of Units</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:decimal">
+      <xs:minInclusive value="0"></xs:minInclusive>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- Environmental Conditions -->
+   <xs:simpleType name="Precipitation">
+    <xs:annotation>
+      <xs:documentation>Any liquid or solid water that falls from the atmosphere to the Earth's surface</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:integer">
+      <xs:minInclusive value="0"></xs:minInclusive>
+      <xs:maxExclusive value="100"></xs:maxExclusive>
+    </xs:restriction>
+   </xs:simpleType>
+
+   <xs:simpleType name="Humidity">
+    <xs:annotation>
+      <xs:documentation>Amount of invisible water vapor in the air.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:integer">
+      <xs:minInclusive value="0"></xs:minInclusive>
+      <xs:maxExclusive value="100"></xs:maxExclusive>
+    </xs:restriction>
+   </xs:simpleType>
+
+   <xs:simpleType name="WindSpeed">
+    <xs:annotation>
+      <xs:documentation>Fundamental rate at which air moves horizontally past a given point in the Earth's atmosphere.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:integer">
+      <xs:minInclusive value="0"></xs:minInclusive>
+    </xs:restriction>
+   </xs:simpleType>
+
+  <!-- Time Variables -->
+   <xs:simpleType name="Days">
+    <xs:annotation>
+      <xs:documentation>Days of the week</xs:documentation>
+    </xs:annotation>
+
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Monday"></xs:enumeration>
+      <xs:enumeration value="Tuesday"></xs:enumeration>
+      <xs:enumeration value="Wednesday"></xs:enumeration>
+      <xs:enumeration value="Thursday"></xs:enumeration>
+      <xs:enumeration value="Friday"></xs:enumeration>
+      <xs:enumeration value="Saturday"></xs:enumeration>
+      <xs:enumeration value="Sunday"></xs:enumeration>
+    </xs:restriction>
+
+   </xs:simpleType>
+
+   	<xs:simpleType name="DateHourType">
+		  <xs:annotation>
+			  <xs:documentation>Date and hour format.</xs:documentation>
+		  </xs:annotation>
+		  <xs:restriction base="xs:dateTime"/>
+    </xs:simpleType>
+
+</xs:schema>

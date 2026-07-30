@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MMIXM Simulation Map</title>
+    <link rel="stylesheet" href="/static/Css/styles.css">
+    <style>
+        #xml-sidebar {
+            position: fixed;
+            right: -400px;
+            top: 0;
+            width: 350px;
+            height: 100%;
+            background-color: #f8f9fa;
+            box-shadow: -2px 0 5px rgba(0,0,0,0.1);
+            transition: right 0.3s ease;
+            padding: 20px;
+            box-sizing: border-box;
+            z-index: 1001;
+            overflow-y: auto;
+        }
+
+        #xml-sidebar.show-sidebar {
+            right: 0;
+        }
+
+        #xml-close-btn {
+            float: right;
+            cursor: pointer;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        /* FIXED: Added horizontal scroll configuration */
+        #xml-content {
+            white-space: pre;
+            overflow-x: auto;
+            display: block;
+            max-width: 100%;
+            background-color: #eee;
+            padding: 10px;
+            border: 1px solid #ccc;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+    <button id="open-btn" class="toggle-btn">☰</button>
+    <div id="sidebar-overlay" class="overlay"></div>
+
+    <!-- Navigation Sidebar -->
+    <aside id="sidebar" class="sidebar">
+        <div class="sidebar-header">
+            <h3>Navigation</h3>
+            <button id="close-btn" class="close-btn">&times;</button>
+        </div>
+        <nav class="sidebar-links">
+            <a href="/">Homepage</a>
+            <a href="#">Dashboard</a>
+            <a href="/map">Worldmap</a>
+            <a href="/create">Manual Input</a>
+        </nav>
+    </aside>
+
+    <div id="xml-sidebar">
+        <span id="xml-close-btn" onclick="closeSidebar()">&times;</span>
+        <h3>IATA XML Data</h3>
+        <pre id="xml-content"></pre>
+    </div>
+
+    <main class="main-content">
+        <h1>MMIXM Radar Activities Simulation</h1><br>
+        <div class="map-container">
+            <iframe srcdoc="{{ full_map }}" title="Folium Map" class="map-frame"></iframe>
+        </div>
+    </main>
+
+    <script src="/static/temp.js"></script>
+    <script>
+        window.openSidebar = function(iataCode) {
+            const xmlUrl = `${window.location.origin}/static/xml/${iataCode}.xml`;
+
+            fetch(xmlUrl)
+                .then(response => {
+                    if (!response.ok) throw new Error(`XML file for ${iataCode} not found.`);
+                    return response.text();
+                })
+                .then(xmlText => {
+                    document.getElementById("xml-content").textContent = xmlText;
+                    document.getElementById("xml-sidebar").classList.add("show-sidebar");
+                })
+                .catch(error => {
+                    document.getElementById("xml-content").textContent = `Error: ${error.message}`;
+                    document.getElementById("xml-sidebar").classList.add("show-sidebar");
+                });
+        };
+
+        window.closeSidebar = function() {
+            document.getElementById("xml-sidebar").classList.remove("show-sidebar");
+        };
+    </script>
+</body>
+</html>

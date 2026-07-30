@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<mb:Message xmlns:mb="https://mmixm.aero/base/4" xmlns:mx="https://mmixm.aero/features/4" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" messageType="Service Monitoring" id="String" timestamp="2001-12-17T09:30:47Z" xsi:schemaLocation="https://mmixm.aero/4 https://mmixm.aero/4/mmixm.xsd">
+        <mx:Asset>
+            <mx:assetName>Cincinnati/Northern Kentucky International Airport</mx:assetName>
+            <mx:location>
+                <mb:faaLocation>
+                    <mb:identifier>CVG</mb:identifier>
+                    <mb:type>
+                        <mb:locationType>Airport</mb:locationType>
+                    </mb:type>
+                </mb:faaLocation>
+                <mb:geographicLocation>
+                    <mb:latitude>39.053</mb:latitude>
+                    <mb:longitude>-84.663017</mb:longitude>
+                </mb:geographicLocation>
+            </mx:location>
+            <mx:monitoringEvent>
+                <mx:eventDateTime>2026-07-29T15:50:39.737833</mx:eventDateTime>
+                <mx:parameter>
+                    <mx:availability>
+                        <mx:currentAvailability>Available</mx:currentAvailability>
+                    </mx:availability>
+                    <mx:monitored>Monitored</mx:monitored>
+                    <mx:name>System Temperature (internal sensor)</mx:name>
+                    <mx:parameterState>
+                            <mx:currentValue xsi:type="mb:Temperature" uom="F" value="-43.5"/>
+                    </mx:parameterState>
+                </mx:parameter>
+            </mx:monitoringEvent>
+        </mx:Asset>
+    </mb:Message>
