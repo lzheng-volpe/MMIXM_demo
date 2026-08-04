@@ -32,7 +32,6 @@
             font-weight: bold;
         }
 
-        /* FIXED: Added horizontal scroll configuration */
         #xml-content {
             white-space: pre;
             overflow-x: auto;
@@ -68,6 +67,8 @@
         <h3>IATA XML Data</h3>
         <pre id="xml-content"></pre>
     </div>
+  
+    <button id="generation-control" class="toggle-btn" onclick="manageGeneration()">Stop Generation</button>
 
     <main class="main-content">
         <h1>MMIXM Radar Activities Simulation</h1><br>
@@ -77,6 +78,7 @@
     </main>
 
     <script src="/static/temp.js"></script>
+    <script src="/static/map.js"></script>
     <script>
         window.openSidebar = function(iataCode) {
             const xmlUrl = `${window.location.origin}/static/xml/${iataCode}.xml`;

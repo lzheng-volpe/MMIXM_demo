@@ -9,7 +9,6 @@
 </head>
 <body>
 
-    <!-- Sidebar Layout Components -->
     <button id="open-btn" class="toggle-btn">☰</button>
     <div id="sidebar-overlay" class="overlay"></div>
     
@@ -26,9 +25,6 @@
         </nav>
     </aside>
 
-    <script src="/static/temp.js"></script>
-
-    <!-- Main Content Container -->
     <main class="main-content">
         <form class="form-container" onsubmit="event.preventDefault();">
             <h2>Airport Entry</h2>
@@ -62,16 +58,30 @@
 
             <div class="form-group">
                 <label for="avail-input">Availability</label>
-                <input type="text" id="avail-input" placeholder="e.g., Available">
+                <select name="Availability" id="avail-input">
+                    <option value="">--Select an option--
+                    </option>
+                    <option>Available</option>
+                    <option>Partially Available</option>
+                    <option>Unavailable</option>
+                </select>
             </div>
 
             <div class="form-group">
                 <label for="moni-input">Monitored Status</label>
-                <input type="text" id="moni-input" placeholder="e.g., Monitored">
+                    <select name="Monitored" id="moni-input">
+                    <option value="">--Select an option--
+                    </option>
+                    <option>Monitored</option>
+                    <option>Unmonitored</option>
+                </select>
             </div>
         </form>
     </main>
+    <button id="create-button" class="toggle-btn">Create</button>
+    <pre id="xml-display"></pre>
 
-    <script src="/static/create.js"></script>
+    <script src="{{ url_for('static', path='/temp.js') }}"></script>
+    <script src="{{ url_for('static', path='/create.js') }}"></script>
 </body>
 </html>

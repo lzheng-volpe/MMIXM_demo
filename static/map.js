@@ -70,3 +70,15 @@ window.addEventListener('message', function(event) {
         openSidebar(event.data.iata);
     }
 });
+
+async function manageGeneration() {
+    const button = document.getElementById("generation-control")
+
+    if(button.textContent === "Stop Generation") {
+        button.textContent = "Start Generation";
+    } else {
+        button.textContent = "Stop Generation";
+    }
+
+    let response = await fetch("/toggle-xml-generation", {method: 'POST'});
+}

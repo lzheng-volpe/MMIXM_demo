@@ -182,3 +182,50 @@ body {
     border: 1px solid #ccc;
     font-family: monospace;
 }
+
+/* Add relative positioning to the container */
+.form-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  position: relative; /* Anchor point for the absolute dropdown */
+}
+
+.form-group label {
+  width: 150px; 
+  text-align: right;
+  margin-right: 10px;
+}
+
+.form-group input {
+  flex: 1;             
+  max-width: 200px;    
+}
+
+#iata-list {
+  position: absolute;
+  top: 100%;          
+  left: 160px;        
+  width: 200px;       
+  max-height: 200px;
+  overflow-y: auto;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1000;      
+}
+
+#iata-list li {
+  padding: 8px 12px;
+  font-size: 14px;
+  color: #333333;
+  cursor: pointer;
+}
+
+#iata-list li:hover {
+  background-color: #f0f0f0;
+}
