@@ -40,7 +40,12 @@ def generate_XML(port = port.airport):
     
     xml_template = f"""
     <?xml version="1.0" encoding="UTF-8"?>
-    <mb:Message xmlns:mb="https://mmixm.aero/base/4" xmlns:mx="https://mmixm.aero/features/4" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" messageType="Service Monitoring" id="String" timestamp="2001-12-17T09:30:47Z" xsi:schemaLocation="https://mmixm.aero/4 https://mmixm.aero/4/mmixm.xsd">
+    <mb:Message xmlns:mb="https://mmixm.aero/base/4" 
+    xmlns:mx="https://mmixm.aero/features/4" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    messageType="Service Monitoring" id="String" 
+    timestamp="2001-12-17T09:30:47Z" 
+    xsi:schemaLocation="https://mmixm.aero/4 https://mmixm.aero/4/mmixm.xsd">
         <mx:Asset>
             <mx:assetName>{port.getName()}</mx:assetName>
             <mx:location>

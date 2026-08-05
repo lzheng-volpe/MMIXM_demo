@@ -5,7 +5,6 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* Content Card layout rules for homepage view blocks */
 .content-card {
     background-color: #ffffff;
     padding: 30px;
@@ -140,22 +139,30 @@ body {
 }
 
 .map-container {
-    position: relative;
-    width: 100%;
-    height: 600px; 
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  position: relative;
+  width: 100%;
+
+  height: 70vh;
+  
+  min-height: 400px;  
+  max-height: 800px;       
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  background-color: #e5e5e5;
 }
 
-.map-container .folium-map,
-.map-container > div {
-    width: 100% !important;
-    height: 100% !important;
-    position: relative !important;
+/* 2. Keeps Folium map elements filling the dynamic container */
+.map-container .folium-map, 
+.map-container > div,
+.map-frame {
+  width: 100% !important;
+  height: 100% !important;
+  border: none;
+  display: block;
+  position: relative !important;
 }
 
-/* Container Box Frame footprint */
 .map-container {
     width: 100%;
     height: 600px;
@@ -183,12 +190,11 @@ body {
     font-family: monospace;
 }
 
-/* Add relative positioning to the container */
 .form-group {
   display: flex;
   align-items: center;
   margin-bottom: 15px;
-  position: relative; /* Anchor point for the absolute dropdown */
+  position: relative;
 }
 
 .form-group label {
@@ -228,4 +234,53 @@ body {
 
 #iata-list li:hover {
   background-color: #f0f0f0;
+}
+
+.form-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  align-items: start;
+}
+
+.form-container h2 {
+  grid-column: span 2;
+}
+
+#create-button {
+  grid-column: span 2;
+}
+
+#xml-display {
+  grid-column: 2;
+  grid-row: span 6;
+  margin: 0;
+  padding: 10px;
+  background: #f9f9f9;
+  border: 1px solid #ddd;
+}
+
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: none; /* Keeps it invisible */
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-overlay.active {
+    display: flex;
+}
+
+.popup-content {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: left;
+    max-width: 800px;
+    width: 100%;
 }

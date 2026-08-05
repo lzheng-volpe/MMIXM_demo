@@ -1,6 +1,5 @@
 from datetime import datetime
 from pydantic import BaseModel
-from requests import Response, request 
 from Utils.XML_Reader import Read_MMIXM 
 from Class.port import airport 
 from Airports.MMIXM_generation import generate_XML 
@@ -9,7 +8,7 @@ import json
 import asyncio 
 from contextlib import asynccontextmanager
 from fastapi import FastAPI, Request 
-from fastapi.responses import HTMLResponse, StreamingResponse, JSONResponse
+from fastapi.responses import HTMLResponse, StreamingResponse, JSONResponse, Response
 from fastapi.staticfiles import StaticFiles 
 from fastapi.templating import Jinja2Templates 
 import folium 
@@ -211,7 +210,6 @@ class MMIXMPayload(BaseModel):
 
 @app.post("/write_xml")
 def write_MMIXM(payload: MMIXMPayload):
-    print(f"[Temp] Successfully reached endpoint. Processing asset: {payload.Name}")
     xml_template = f"""<?xml version="1.0" encoding="UTF-8"?>
     <mb:Message xmlns:mb="https://mmixm.aero/base/4" 
                 xmlns:mx="https://mmixm.aero/features/4" 
@@ -250,4 +248,4 @@ def write_MMIXM(payload: MMIXMPayload):
         </mx:Asset>
     </mb:Message>"""
     
-    return xml_template
+    return Response(content=xml_template)

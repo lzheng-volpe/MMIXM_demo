@@ -76,11 +76,19 @@
                     <option>Unmonitored</option>
                 </select>
             </div>
+
+            <button id="create-button" class="toggle-btn">Create</button>
         </form>
     </main>
-    <button id="create-button" class="toggle-btn">Create</button>
-    <pre id="xml-display"></pre>
 
+    <div id="popup-overlay" class="popup-overlay">
+        <div class="popup-content">
+            <h2>Generated XML Data</h2>
+            <p id="xml-display"></p>
+            <button id="close-button" class="toggle-btn">Close</button>
+        </div>
+    </div>
+    
     <script src="{{ url_for('static', path='/temp.js') }}"></script>
     <script src="{{ url_for('static', path='/create.js') }}"></script>
 </body>
