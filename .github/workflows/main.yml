@@ -7,18 +7,11 @@ on:
 
 jobs:
   deploy:
-    runs-on: ubuntu-latest
-
+    runs-on: self-hosted
     steps:
-      - name: Execute remote SSH commands to pull code
-        uses: appleboy/ssh-action@v1.0.3
-        with:
-          host: 152.122.20.164
-          username: ${{ secrets.SSH_USER }}
-          key: ${{ secrets.SSH_KEY }}
-          script: |
-            cd /var/www/MMIXM_demo
-            git pull origin main
-
-            sudo systemctl daemon-reload
-            sudo systemctl restart fastapi
+      - name: Deploy FastAPI App locally
+        run: |
+          cd /var/www/MMIXM_demo
+          git pull origin main
+          sudo systemctl daemon-reload
+          sudo systemctl restart fastapi
